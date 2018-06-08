@@ -1,0 +1,19 @@
+{
+  "name": "buepro/typo3-auxlibs",
+  "type": "typo3-cms-extension",
+  "description": "Libraries from third parties",
+  "keywords": [
+    "TYPO3",
+    "hashids"
+  ],
+  "homepage": "https://typo3.org",
+  "license": ["GPL-2.0+"],
+  "require": {
+    "typo3/cms-core": "^8.7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Buepro\\Auxlibs\\": "Classes"
+    }
+  }
+}

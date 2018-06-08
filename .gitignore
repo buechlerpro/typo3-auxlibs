@@ -1,0 +1,5 @@
+.idea
+*.zip
+
+# hashids.php
+#/Contrib/hashids.php
