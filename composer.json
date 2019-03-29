@@ -1,19 +1,44 @@
 {
   "name": "buepro/typo3-auxlibs",
   "type": "typo3-cms-extension",
-  "description": "Libraries from third parties",
+  "description": "Provides third party libraries to be used in non-composer mode. The following libraries are embedded: hashids/hashids.",
   "keywords": [
     "TYPO3",
     "hashids"
   ],
-  "homepage": "https://typo3.org",
-  "license": ["GPL-2.0+"],
+  "authors": [
+    {
+      "name": "Roman B\u00fcchler",
+      "role": "Developer"
+    }
+  ],
+  "homepage": "https://github.com/buepro/typo3-auxlibs/",
+  "license": [
+    "MIT"
+  ],
   "require": {
-    "typo3/cms-core": "^8.7.1"
+    "typo3/cms-core": "^8.7 || ^9.0",
+    "hashids/hashids": "~4.0.0"
   },
   "autoload": {
     "psr-4": {
       "Buepro\\Auxlibs\\": "Classes"
     }
+  },
+  "replace": {
+    "auxlibs": "self.version"
+  },
+  "archive": {
+    "exclude": [
+      "ext_localconf.php"
+    ]
+  },
+  "scripts": {
+    "create-libs": [
+      "mkdir -p Libraries",
+      "@composer global require clue/phar-composer",
+      "[ -f Libraries/hashids-hashids.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'hashids/hashids=~4.0.0' Libraries/hashids-hashids.phar",
+      "chmod -x Libraries/*"
+    ]
   }
 }
