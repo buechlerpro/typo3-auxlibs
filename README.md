@@ -30,9 +30,8 @@ $handle = $hashids->encode(5, 5, 5);
 
 ## Usage
 
-The libraries are automatically loaded in the context of TCA configuration. In case a library needs to be available 
-at an earlier stage it might be loaded with an include statement. The include statement for the library `hashids` 
-would look as following:
+The libraries are automatically loaded in a middleware. In case a library needs to be available at an earlier stage it 
+might be loaded with an include statement. The include statement for the library `hashids` would look as following:
 
 ```php
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
