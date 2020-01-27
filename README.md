@@ -12,6 +12,7 @@ Currently the following libraries are available:
 | Library | Version |
 | --- | --- |
 | hashids/hashids | 4.0.0 |
+| erusev/parsedown | 1.7.4 |
 
 
 ## Libraries
@@ -26,6 +27,18 @@ Example:
 ```php
 $hashids = new \Hashids\Hashids;
 $handle = $hashids->encode(5, 5, 5);
+```
+
+### Parsedown
+
+[Parsedown](https://github.com/erusev/parsedown) transforms text with 
+[markdown syntax](https://daringfireball.net/projects/markdown/) to html.
+
+Example:
+
+```php
+$parsedown = new \Parsedown;
+$htmlText = $parsedown->text($markdownText);
 ```
 
 ## Usage

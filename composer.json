@@ -1,7 +1,7 @@
 {
   "name": "buepro/typo3-auxlibs",
   "type": "typo3-cms-extension",
-  "description": "Provides third party libraries to be used in non-composer mode. The following libraries are embedded: hashids/hashids.",
+  "description": "Provides third party libraries to be used in non-composer mode. The following libraries are embedded: hashids/hashids, erusev/parsedown.",
   "keywords": [
     "TYPO3",
     "hashids"

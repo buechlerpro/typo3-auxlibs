@@ -25,6 +25,12 @@ class RequiresMiddleware implements MiddlewareInterface
                 . ExtensionManagementUtility::extPath('auxlibs')
                 . 'Libraries/hashids-hashids.phar/vendor/autoload.php';
         }
+        // Loads package Erusev\Parsedown
+        if (!class_exists('Parsedown')) {
+            @include 'phar://'
+                . ExtensionManagementUtility::extPath('auxlibs')
+                . 'Libraries/erusev-parsedown.phar/vendor/autoload.php';
+        }
         // Hands over to next middleware
         return $handler->handle($request);
     }

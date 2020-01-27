@@ -9,7 +9,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Third party libraries',
-    'description' => 'Provides the following third party libraries: hashids',
+    'description' => 'Provides the following third party libraries: hashids, parsedown.',
     'category' => 'misc',
     'author' => 'Roman Büchler',
     'author_email' => 'rb@buechler.pro',
@@ -18,7 +18,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => '0',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '1.1.5',
+    'version' => '1.2.0',
     'constraints' => [
         'depends' => [
             'typo3' => '8.7.0-9.99.99',
