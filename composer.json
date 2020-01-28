@@ -38,6 +38,7 @@
       "mkdir -p Libraries",
       "@composer global require clue/phar-composer",
       "[ -f Libraries/hashids-hashids.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'hashids/hashids=~4.0.0' Libraries/hashids-hashids.phar",
+      "[ -f Libraries/erusev-parsedown.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'erusev/parsedown=~1.7.4' Libraries/erusev-parsedown.phar",
       "chmod -x Libraries/*"
     ]
   }
