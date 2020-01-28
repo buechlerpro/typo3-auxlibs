@@ -18,7 +18,8 @@
   ],
   "require": {
     "typo3/cms-core": "^8.7 || ^9.0",
-    "hashids/hashids": "~4.0.0"
+    "hashids/hashids": "~4.0.0",
+    "erusev/parsedown": "~1.7.4"
   },
   "autoload": {
     "psr-4": {
