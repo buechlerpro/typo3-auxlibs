@@ -41,6 +41,26 @@ $parsedown = new \Parsedown;
 $htmlText = $parsedown->text($markdownText);
 ```
 
+#### Viewhelper
+
+A view helper is available and can be used as following:
+
+```html
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:auxlibs="http://typo3.org/ns/Buepro/Auxlibs/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+      
+<!--Inline mode-->
+{auxlibs:parsedown(text: textWithMarkedownSyntax)}
+{task.description -> auxlibs:parsedown()}
+
+<!--Tag mode-->
+<auxlibs:parsedown text="{task.description}" />
+<auxlibs:parsedown>{task.description}</auxlibs:parsedown>
+
+</html>
+```
+
 ## Usage
 
 The libraries are automatically loaded in a middleware. In case a library needs to be available at an earlier stage it 
