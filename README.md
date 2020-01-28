@@ -41,11 +41,11 @@ $parsedown = new \Parsedown;
 $htmlText = $parsedown->text($markdownText);
 ```
 
-#### Viewhelper
+#### ViewHelper
 
-A view helper is available and can be used as following:
+A ViewHelper is available and can be used as following:
 
-```html
+```xhtml
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:auxlibs="http://typo3.org/ns/Buepro/Auxlibs/ViewHelpers"
       data-namespace-typo3-fluid="true">
@@ -60,6 +60,12 @@ A view helper is available and can be used as following:
 
 </html>
 ```
+
+The ViewHelper has the following properties:
+
+Property | Description | Type | Default
+---|---|---|---
+nl2br | If set maintains line breaks | bool | false
 
 ## Usage
 
