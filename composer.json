@@ -26,7 +26,7 @@
     }
   },
   "replace": {
-    "auxlibs": "self.version"
+    "typo3-ter/auxlibs": "self.version"
   },
   "archive": {
     "exclude": [
@@ -41,5 +41,10 @@
       "[ -f Libraries/erusev-parsedown.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'erusev/parsedown=~1.7.4' Libraries/erusev-parsedown.phar",
       "chmod -x Libraries/*"
     ]
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "auxlibs"
+    }
   }
 }
