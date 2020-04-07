@@ -13,9 +13,7 @@
     }
   ],
   "homepage": "https://github.com/buepro/typo3-auxlibs/",
-  "license": [
-    "MIT"
-  ],
+  "license": ["GPL-2.0-or-later"],
   "require": {
     "typo3/cms-core": "^8.7 || ^9.0",
     "hashids/hashids": "~4.0.0",
@@ -23,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Buepro\\Auxlibs\\": "Classes"
+      "Buepro\\Auxlibs\\": "Classes/"
     }
   },
   "replace": {
