@@ -11,7 +11,7 @@ Currently the following libraries are available:
 
 | Library | Version |
 | --- | --- |
-| hashids/hashids | 4.0.0 |
+| hashids/hashids | 4.1.0 |
 | erusev/parsedown | 1.7.4 |
 
 
@@ -19,7 +19,7 @@ Currently the following libraries are available:
 
 ### Hashids
 
-[Hashids](http://hashids.org/php) is small PHP library to generate YouTube-like ids from numbers. 
+[Hashids](http://hashids.org/php) is small PHP library to generate YouTube-like ids from numbers.
 Use it when you don't want to expose your database ids to the user.
 
 Example:
@@ -31,7 +31,7 @@ $handle = $hashids->encode(5, 5, 5);
 
 ### Parsedown
 
-[Parsedown](https://github.com/erusev/parsedown) transforms text with 
+[Parsedown](https://github.com/erusev/parsedown) transforms text with
 [markdown syntax](https://daringfireball.net/projects/markdown/) to html.
 
 Example:
@@ -49,7 +49,7 @@ A ViewHelper is available and can be used as following:
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:auxlibs="http://typo3.org/ns/Buepro/Auxlibs/ViewHelpers"
       data-namespace-typo3-fluid="true">
-      
+
 <!--Inline mode-->
 {auxlibs:parsedown(text: textWithMarkedownSyntax)}
 {task.description -> auxlibs:parsedown()}
@@ -69,7 +69,7 @@ nl2br | If set maintains line breaks | bool | false
 
 ## Usage
 
-The libraries are automatically loaded in a middleware. In case a library needs to be available at an earlier stage it 
+The libraries are automatically loaded in a middleware. In case a library needs to be available at an earlier stage it
 might be loaded with an include statement. The include statement for the library `hashids` would look as following:
 
 ```php
