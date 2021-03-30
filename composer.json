@@ -15,8 +15,8 @@
   "homepage": "https://github.com/buepro/typo3-auxlibs/",
   "license": ["GPL-2.0-or-later"],
   "require": {
-    "typo3/cms-core": "^8.7 || ^9.0 || ^10.0 || dev-master",
-    "hashids/hashids": "~4.0.0",
+    "typo3/cms-core": "^10.4 || 11.*.*@dev",
+    "hashids/hashids": "~4.1.0",
     "erusev/parsedown": "~1.7.4"
   },
   "autoload": {
@@ -37,7 +37,7 @@
     "create-libs": [
       "mkdir -p Libraries",
       "@composer global require clue/phar-composer",
-      "[ -f Libraries/hashids-hashids.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'hashids/hashids=~4.0.0' Libraries/hashids-hashids.phar",
+      "[ -f Libraries/hashids-hashids.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'hashids/hashids=~4.1.0' Libraries/hashids-hashids.phar",
       "[ -f Libraries/erusev-parsedown.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'erusev/parsedown=~1.7.4' Libraries/erusev-parsedown.phar",
       "chmod -x Libraries/*"
     ]
@@ -45,6 +45,9 @@
   "extra": {
     "typo3/cms": {
       "extension-key": "auxlibs"
+    },
+    "branch-alias": {
+      "dev-master": "1.x-dev"
     }
   }
 }
