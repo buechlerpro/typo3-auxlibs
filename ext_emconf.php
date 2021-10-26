@@ -9,7 +9,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Third party libraries',
-    'description' => 'Provides the following third party libraries: hashids, parsedown.',
+    'description' => 'Provides the following third party libraries: hashids, parsedown, php-rrule.',
     'category' => 'misc',
     'author' => 'Roman Büchler',
     'author_email' => 'rb@buechler.pro',

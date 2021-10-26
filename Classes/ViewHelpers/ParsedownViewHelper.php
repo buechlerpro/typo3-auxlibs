@@ -29,7 +29,7 @@ class ParsedownViewHelper extends AbstractViewHelper
         array $arguments,
         \Closure $renderChildrenClosure,
         RenderingContextInterface $renderingContext
-    ) {
+    ): string {
         $text = $arguments['text'] ?? $renderChildrenClosure();
         $parsedown = new \Parsedown;
         $parsedown->setBreaksEnabled($arguments['nl2br']);

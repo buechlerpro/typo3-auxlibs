@@ -17,16 +17,48 @@
   "require": {
     "typo3/cms-core": "^10.4 || ^11.3",
     "hashids/hashids": "~4.1.0",
-    "erusev/parsedown": "~1.7.4"
+    "erusev/parsedown": "~1.7.4",
+    "rlanvin/php-rrule": "~2.3.0"
+  },
+  "require-dev": {
+    "clue/phar-composer": "^1.2.0",
+    "friendsofphp/php-cs-fixer": "^3.0.0",
+    "friendsoftypo3/phpstan-typo3": "^0.8.1",
+    "overtrue/phplint": "^2.3.5",
+    "phpstan/phpstan": "^0.12.87",
+    "phpstan/phpstan-deprecation-rules": "^0.12.6",
+    "phpstan/phpstan-phpunit": "^0.12.19",
+    "phpstan/phpstan-strict-rules": "^0.12.9"
+  },
+  "config": {
+    "bin-dir": ".build/bin",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "vendor-dir": ".build/vendor"
+  },
+  "extra": {
+    "typo3/cms": {
+      "app-dir": ".build",
+      "extension-key": "auxlibs",
+      "web-dir": ".build/public"
+    },
+    "branch-alias": {
+      "dev-master": "1.4.x-dev"
+    }
+  },
+  "replace": {
+    "buepro/typo3-auxlibs": "self.version",
+    "typo3-ter/auxlibs": "self.version"
   },
   "autoload": {
     "psr-4": {
       "Buepro\\Auxlibs\\": "Classes/"
     }
   },
-  "replace": {
-    "buepro/typo3-auxlibs": "self.version",
-    "typo3-ter/auxlibs": "self.version"
+  "autoload-dev": {
+    "psr-4": {
+      "Buepro\\Auxlibs\\Tests\\": "Tests"
+    }
   },
   "archive": {
     "exclude": [
@@ -34,20 +66,37 @@
     ]
   },
   "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .build/public/typo3conf/ext/",
+      "[ -L .build/public/typo3conf/ext/auxlibs ] || ln -snvf ../../../../. .build/public/typo3conf/ext/auxlibs"
+    ],
     "create-libs": [
       "mkdir -p Libraries",
-      "@composer global require clue/phar-composer",
-      "[ -f Libraries/hashids-hashids.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'hashids/hashids=~4.1.0' Libraries/hashids-hashids.phar",
-      "[ -f Libraries/erusev-parsedown.phar ] || $HOME/.composer/vendor/bin/phar-composer build 'erusev/parsedown=~1.7.4' Libraries/erusev-parsedown.phar",
+      "[ -f Libraries/hashids-hashids.phar ] || php .build/bin/phar-composer build 'hashids/hashids=~4.1.0' Libraries/hashids-hashids.phar",
+      "[ -f Libraries/erusev-parsedown.phar ] || php .build/bin/phar-composer build 'erusev/parsedown=~1.7.4' Libraries/erusev-parsedown.phar",
+      "[ -f Libraries/rlanvin-php-rrule.phar ] || php .build/bin/phar-composer build 'rlanvin/php-rrule=~2.3.0' Libraries/rlanvin-php-rrule.phar",
       "chmod -x Libraries/*"
+    ],
+    "cgl": [
+      "php-cs-fixer --diff -v fix"
+    ],
+    "cgl:ci": [
+      "php-cs-fixer --diff -v --dry-run fix"
+    ],
+    "phpstan": [
+      "phpstan analyze --configuration Build/phpstan.neon"
+    ],
+    "test:php:lint": [
+      "phplint"
+    ],
+    "test:php:libs": [
+      "php Tests/Libraries/test.php"
+    ],
+    "test": [
+      "@cgl:ci",
+      "@phpstan",
+      "@test:php:lint",
+      "@test:php:libs"
     ]
-  },
-  "extra": {
-    "typo3/cms": {
-      "extension-key": "auxlibs"
-    },
-    "branch-alias": {
-      "dev-master": "1.4.x-dev"
-    }
   }
 }

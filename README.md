@@ -1,7 +1,7 @@
 # TYPO3-Auxlibs
 
-[![Build Status](https://badgen.net/travis/buepro/typo3-auxlibs/master)](https://travis-ci.org/buepro/typo3-auxlibs)
-[![Latest Version](https://badgen.net/packagist/v/buepro/typo3-auxlibs)](https://github.com/buepro/typo3-auxlibs/releases)
+[![Continuous integration status](https://github.com/buepro/typo3-auxlibs/workflows/CI/badge.svg)](https://github.com/buepro/typo3-auxlibs/actions?query=workflow%3ACI)
+[![Latest Version](https://badgen.net/packagist/v/buepro/typo3-auxlibs)](https://packagist.org/packages/buepro/typo3-auxlibs)
 
 ---
 
@@ -13,6 +13,7 @@ Currently the following libraries are available:
 | --- | --- |
 | hashids/hashids | 4.1.0 |
 | erusev/parsedown | 1.7.4 |
+| rlanvin/php-rrule | 2.3.0 |
 
 
 ## Libraries
@@ -66,6 +67,32 @@ The ViewHelper has the following properties:
 Property | Description | Type | Default
 ---|---|---|---
 nl2br | If set maintains line breaks | bool | false
+
+## PHP RRule
+
+[RRule](https://github.com/rlanvin/php-rrule) is a lightweight and fast implementation of recurrence rules for PHP (RRULE from RFC 5545), to easily calculate
+recurring/repeating dates and events (such as in a calendar).
+
+Example:
+
+```php
+$rrule = new RRule('RRULE:FREQ=DAILY;UNTIL=19971224T000000Z;WKST=SU;BYDAY=MO,WE,FR;BYMONTH=1');
+foreach ($rrule as $occurrence) {
+    echo $occurrence->format('r'),"\n";
+}
+```
+
+With [RSet](https://github.com/rlanvin/php-rrule/wiki/RSet) even more complex rules can be defined:
+
+```php
+$rset = new RSet(
+    "DTSTART;TZID=America/New_York:19970901T090000
+    RRULE:FREQ=DAILY;COUNT=3
+    EXRULE:FREQ=DAILY;INTERVAL=2;COUNT=1
+    EXDATE;TZID=America/New_York:19970903T090000
+    RDATE;TZID=America/New_York:19970904T090000"
+);
+```
 
 ## Usage
 
