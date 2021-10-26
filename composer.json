@@ -15,7 +15,7 @@
   "homepage": "https://github.com/buepro/typo3-auxlibs/",
   "license": ["GPL-2.0-or-later"],
   "require": {
-    "typo3/cms-core": "^10.4 || ^11.3",
+    "typo3/cms-core": "^10.4 || ^11.5.1",
     "hashids/hashids": "~4.1.0",
     "erusev/parsedown": "~1.7.4",
     "rlanvin/php-rrule": "~2.3.0"
@@ -43,7 +43,7 @@
       "web-dir": ".build/public"
     },
     "branch-alias": {
-      "dev-master": "1.4.x-dev"
+      "dev-master": "1.5.x-dev"
     }
   },
   "replace": {
