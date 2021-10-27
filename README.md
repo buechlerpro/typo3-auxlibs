@@ -68,7 +68,7 @@ Property | Description | Type | Default
 ---|---|---|---
 nl2br | If set maintains line breaks | bool | false
 
-## PHP RRule
+### PHP RRule
 
 [RRule](https://github.com/rlanvin/php-rrule) is a lightweight and fast implementation of recurrence rules for PHP (RRULE from RFC 5545), to easily calculate
 recurring/repeating dates and events (such as in a calendar).
