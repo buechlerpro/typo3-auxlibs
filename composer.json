@@ -46,10 +46,6 @@
       "dev-master": "1.5.x-dev"
     }
   },
-  "replace": {
-    "buepro/typo3-auxlibs": "self.version",
-    "typo3-ter/auxlibs": "self.version"
-  },
   "autoload": {
     "psr-4": {
       "Buepro\\Auxlibs\\": "Classes/"
